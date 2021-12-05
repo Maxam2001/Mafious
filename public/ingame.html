@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<!-- แน่นอนว่่ามันคือ interface, ใช้หน้าเดียว เล่นได้ทั้งเกม -->
+<head>
+  <link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+			integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+			crossorigin="anonymous"
+		/>
+  <title id="room-name"></title>
+</head>
+
+<body>
+  <div class="chat-container">
+    <header class="chat-header"> 
+      <h1><i class="fas fa-user-secret"></i> Mafious</h1>
+      <button id="leave-btn" class="btnTM" style="right:20px">Leave Room</button>
+    </header>
+    <header class="chat-subheader">
+      <!-- <button class="btnTM" style="margin-left: 10px;">Play!!</button> -->
+      <div id="header" style="padding-left: 9px;"></div> <!-- ชื่อ lobby -->
+      <div id="announcement" ></div> <!-- ประกาศแจ้ง เช่น ขาด 7 คน, เกมกำลังจะเริ่ม -->
+    </header>
+    <main class="chat-main"> 
+      <div class="chat-sidebar">  <!-- กล่องซ้าย -->
+        <h3><i class="fas fa-comments"></i> Room Name:</h3>
+          <h4 id="room-name">RoomName</h4>
+        <h3><i class="fas fa-users"></i> Users</h3>
+          <ul id="player-list" style="font-weight: bold;"></ul>  <!-- รายชื่อ -->
+        <div id="selectArea"> <!-- ส่วนแสดง/ไม่แสดง -->
+          <h4 style="margin-bottom: 10px; width: calc(100% + 31px);"></h4>
+          <h3><i class="fas fa-user-times"></i> Votes</h3>
+          <p id="votingPlayers"></p>  <!-- โหวตออก โหวตฆ่า โหวตอะไรก็ตาม -->
+          <select id="select"></select><br>
+          <input id="vote" type="button" value="vote">
+         </div><!-- จบ ส่วนแสดง/ไม่แสดง -->
+      </div>
+      <div id="content"></div>  <!-- โชว์ข้อความที่ส่งไป หรือคนส่งมา -->
+      <!-- <div class="chat-messages">  
+        
+      </div> --> <!-- กล่องกลาง -->
+      <!-- <div id="right-pane"> 
+        
+      </div> -->  <!-- กล่องขวา -->
+    </main>
+    <div class="chat-form-container">  <!-- ส่วนควบคุม -->
+      <div id="nick-form">  <!-- กรอกชื่อ กรอกเสร็จจะหายไป (ไม่น่าได้ใช้ รอเอาออก) -->
+        <input id="name" placeholder=" Enter your nickname first">
+        <input class="btnTM" id="nick" type="button" value="set">
+      </div>
+      <div id="chat-form">  <!-- พิมพ์แชท -->
+        <input id="field" placeholder=" Type your message here">
+        <input class="btnTM" id="send" type="button" value="send">
+      </div>
+    </div>
+  </div>
+
+  <!-- ไฟล์ที่ดึงมา -->
+  <script src="//code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="js/client.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</body>
+
+</html>
